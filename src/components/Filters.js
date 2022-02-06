@@ -1,6 +1,6 @@
 import React from "react";
 
-function Filters() {
+function Filters({onChangeType}) {
   return (
     <div className="ui form">
       <h3>Animal type</h3>

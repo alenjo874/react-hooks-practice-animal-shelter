@@ -1,24 +1,28 @@
 import React from "react";
 
-function Pet() {
+function Pet({id, name, type, gender, age, weight, isAdopted}) {
+
+  const adoptedButton =  <button className="ui disabled button">Already adopted</button>
+  const adoptButton =  <button className="ui primary button">Adopt pet</button>
+
   return (
     <div className="card" data-testid="pet">
       <div className="content">
         <span className="header">
-          {/*'♀' OR '♂' */}
-          PET NAME
+          {gender === "female" ? '♀' : '♂' }
+          {name}
         </span>
         <div className="meta">
-          <span className="date">PET TYPE</span>
+          <span className="date">{type}</span>
         </div>
         <div className="description">
-          <p>Age: PET AGE</p>
-          <p>Weight: PET WEIGHT</p>
+          <p>Age: {age}</p>
+          <p>Weight: {weight}</p>
         </div>
       </div>
       <div className="extra content">
-        <button className="ui disabled button">Already adopted</button>
-        <button className="ui primary button">Adopt pet</button>
+       
+       {isAdopted ? adoptedButton : adoptButton}
       </div>
     </div>
   );
